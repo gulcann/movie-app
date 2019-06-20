@@ -1,0 +1,14 @@
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\bin\Debug\netcoreapp2.2\movie-api.deps.json
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\bin\Debug\netcoreapp2.2\movie-api.runtimeconfig.json
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\bin\Debug\netcoreapp2.2\movie-api.runtimeconfig.dev.json
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\bin\Debug\netcoreapp2.2\movie-api.dll
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\bin\Debug\netcoreapp2.2\movie-api.pdb
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.csprojAssemblyReference.cache
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.csproj.CoreCompileInputs.cache
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.RazorAssemblyInfo.cache
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.RazorAssemblyInfo.cs
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.AssemblyInfoInputs.cache
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.AssemblyInfo.cs
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.RazorTargetAssemblyInfo.cache
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.dll
+C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.pdb
