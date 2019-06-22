@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using movie_api.Data;
 using movie_api.Models;
 
 namespace movie_api.Controllers
@@ -11,94 +12,31 @@ namespace movie_api.Controllers
     [ApiController]
     public class MovieController : Controller
     {
-          // GET api/movie
-        [HttpGet]
-        public ActionResult<MovieModel> Get()
+        private readonly IMovieRepository _MovieRepo;
+
+        public MovieController(IMovieRepository movieRepo)
         {
-            List<Rating> ratings = new List<Rating> { new Rating { Source= "Internet Movie Database",
-                                                            Value= "7.7/10"},
-                                             new Rating {Source="Rotten Tomatoes",
-                                                          Value="84%"},
-                                             new Rating {Source="Metacritic",
-                                                          Value="67/100"},
+            this._MovieRepo = movieRepo;
+        }
 
-                                            };
-            return new MovieModel
-            { 
-                Title = "Guardians of the Galaxy Vol. 2",
-                Year = "2017",
-                Rated = "PG-13",
-                Released = "05 May 2017",
-                Runtime = "136 min",
-                Genre = "Action, Adventure, Comedy, Sci-Fi",
-                Director = "James Gunn",
-                Writer = "James Gunn, Dan Abnett (based on the Marvel comics by), Andy Lanning (based on the Marvel comics by), Steve Englehart (Star-Lord created by), Steve Gan (Star-Lord created by), Jim Starlin (Gamora and Drax created by), Stan Lee (Groot created by), Larry Lieber (Groot created by), Jack Kirby (Groot created by), Bill Mantlo (Rocket Raccoon created by), Keith Giffen (Rocket Raccoon created by), Steve Gerber (Howard the Duck created by), Val Mayerik (Howard the Duck created by)",
-                Actors = "Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel",
-                Plot = "The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord's encounter with his father the ambitious celestial being Ego.",
-                Language = "English",
-                Country = "USA",
-                Awards = "Nominated for 1 Oscar. Another 12 wins & 42 nominations.",
-                Poster = "https=//m.media-amazon.com/images/M/MV5BMTg2MzI1MTg3OF5BMl5BanBnXkFtZTgwNTU3NDA2MTI@._V1_SX300.jpg",
-                Ratings = ratings,
-                Metascore = "67",
-                imdbRating = "7.7",
-                imdbVotes = "482,251",
-                imdbID = "tt3896198",
-                Type = "movie",
-                DVD = "22 Aug 2017",
-                BoxOffice = "$389,804,217",
-                Production = "Walt Disney Pictures",
-                Website = "https=//marvel.com/guardians",
-                Response = "True"
-            
-           
-            };
-
+        // GET api/movie
+        [HttpGet("getbytitle/{Title}")]
+        public ActionResult<MovieModel> GetSearch(string Title)
+        {
+            var movie = this._MovieRepo.GetBySearch(Title).Result;
+            return movie;
         }
          // GET api/movie/tt3896198
-        [HttpGet("{imdbID}")]
-        public ActionResult<MovieModel> Get(int imdbID)
+        [HttpGet("getbyid/{imdbID}")]
+        public ActionResult<MovieModel> Get(string imdbID)
         {
-            List<Rating> ratings = new List<Rating> { new Rating { Source= "Internet Movie Database",
-                                                            Value= "7.7/10"},
-                                             new Rating {Source="Rotten Tomatoes",
-                                                          Value="84%"},
-                                             new Rating {Source="Metacritic",
-                                                          Value="67/100"},
-
-                                            };
-            return new MovieModel
-            {
-                Title = "Guardians of the Galaxy Vol. 2",
-                Year = "2017",
-                Rated = "PG-13",
-                Released = "05 May 2017",
-                Runtime = "136 min",
-                Genre = "Action, Adventure, Comedy, Sci-Fi",
-                Director = "James Gunn",
-                Writer = "James Gunn, Dan Abnett (based on the Marvel comics by), Andy Lanning (based on the Marvel comics by), Steve Englehart (Star-Lord created by), Steve Gan (Star-Lord created by), Jim Starlin (Gamora and Drax created by), Stan Lee (Groot created by), Larry Lieber (Groot created by), Jack Kirby (Groot created by), Bill Mantlo (Rocket Raccoon created by), Keith Giffen (Rocket Raccoon created by), Steve Gerber (Howard the Duck created by), Val Mayerik (Howard the Duck created by)",
-                Actors = "Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel",
-                Plot = "The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord's encounter with his father the ambitious celestial being Ego.",
-                Language = "English",
-                Country = "USA",
-                Awards = "Nominated for 1 Oscar. Another 12 wins & 42 nominations.",
-                Poster = "https=//m.media-amazon.com/images/M/MV5BMTg2MzI1MTg3OF5BMl5BanBnXkFtZTgwNTU3NDA2MTI@._V1_SX300.jpg",
-                Ratings = ratings,
-                Metascore = "67",
-                imdbRating = "7.7",
-                imdbVotes = "482,251",
-                imdbID = "tt3896198",
-                Type = "movie",
-                DVD = "22 Aug 2017",
-                BoxOffice = "$389,804,217",
-                Production = "Walt Disney Pictures",
-                Website = "https=//marvel.com/guardians",
-                Response = "True"
-            };
+             var movie= this._MovieRepo.GetByID(imdbID).Result;
+             return movie;
         }
 
         // POST api/movie
         [HttpPost]
+
         public void Post([FromBody] string value)
         {
         }

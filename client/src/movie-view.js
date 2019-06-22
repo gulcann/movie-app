@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class MovieView extends React.Component
-{  constructor(props) {
-    super(props);
-   }
+class MovieView extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     movieList() {
         var valueArr = Object.assign(this.props.data);
         var arr = this.getMovieValues(valueArr);
@@ -47,21 +47,20 @@ class MovieView extends React.Component
         return arr;
     }
 
-render()
-{
-    return(
-    <form>
-         {this.movieList()}
-    </form>
-    );
-}
+    render() {
+        return (
+            <div>                
+                {this.movieList()}
+            </div>
+        );
+    }
 }
 
 MovieView.defaultProps = {
-    data : []
+    data: []
 };
 MovieView.propTypes = {
-    data : PropTypes.array.isRequired
+    data: PropTypes.array.isRequired
 };
 
 export default MovieView;

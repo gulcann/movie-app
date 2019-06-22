@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using movie_api.Data;
 
 namespace movie_api
 {
@@ -32,6 +33,7 @@ namespace movie_api
                     .AllowAnyHeader();
             }));
 
+            services.AddTransient<IMovieRepository, MovieRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
