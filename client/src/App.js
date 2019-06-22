@@ -58,7 +58,7 @@ class App extends React.Component {
     if(this.state.isLoading)
     { 
       result =  "Loading..."; 
-    }else if(this.state.data.length == 0)
+    }else if(this.state.data === null || this.state.data.length === 0)
     {
       result = "Movie not found!";
     }else 
@@ -87,7 +87,7 @@ class App extends React.Component {
                Title
         </label>   
         <input style = {{marginLeft: '15px'}} value={this.state.searchText} onChange={e => this.setState({ searchText: e.target.value })} />
-        <button onClick={() => {this.ControlAndGetData(); this.setState({searchButton:true});}}>
+        <button disabled = {this.state.isLoading} onClick={() => {this.ControlAndGetData(); this.setState({searchButton:true});}}>
           Search
         </button>
         <br />

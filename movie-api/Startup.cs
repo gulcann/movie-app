@@ -34,6 +34,7 @@ namespace movie_api
             }));
 
             services.AddTransient<IMovieRepository, MovieRepository>();
+            services.AddTransient<IMovieSource, MovieSource>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
