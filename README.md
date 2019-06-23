@@ -9,7 +9,7 @@ Client can search any movie and get latest update info about it.
 * What would you like to do if you had more time?
 * Do you have additional comments?
 
-# Which patterns did you use and why did you choose those patterns?
+## Which patterns did you use and why did you choose those patterns?
 
 * Repository Pattern
 I used this pattern to my project's ASP.NET web api part to do data transactions (get,insert,delete).
@@ -22,8 +22,9 @@ I chosed this pattern because:
 This pattern provide developer to draw central structure for data processing and queries to avoid repetition.
 In program, the actual work of the sections and data access section seperating from each other by repository pattern.
       
-# Which DI tools did you use and why did you choose that tool?
+## Which DI tools did you use and why did you choose that tool?
 
 * Constructor Injection
 I used dependency injection on constructor so that classes with different responsibilities have a relationship on 
-loosely coupled.I injected dependency through the constructor. We are doing it so because we want our Service to be available in the entire Client object.
+loosely coupled.I injected dependency through the constructor that provide me to achive loosely couple relationship and 
+agree the Liskov Substitution Principle. 
