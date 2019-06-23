@@ -73,7 +73,8 @@ namespace movie_api.Controllers
 
         private void DeleteAndInsertNewMovie(MovieModel movie)
         {
-            this._MovieRepo.DeleteMovie(movie.ImdbID);
+            this._MovieRepo.DeleteMovie(movie.ImdbID); 
+            var newMovie = this._MoviRest.GetMovie<MovieModel>(movie.ImdbID,"");
             movie.RecordDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff");
             this._MovieRepo.AddNewMovie(movie);
         }

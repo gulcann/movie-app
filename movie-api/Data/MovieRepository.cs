@@ -14,7 +14,6 @@ namespace movie_api.Data
     public class MovieRepository : IMovieRepository
     {
         private readonly IConfiguration _config;
-
         public MovieRepository(IConfiguration config)
         {
             _config = config;
