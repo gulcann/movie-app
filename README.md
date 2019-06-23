@@ -10,7 +10,8 @@ I used repository pattern to manage data access layer of my api project.
 I chosed this pattern because:
 * it is very convenient for managing data from a single point
 * Prevents code duplication,
-örnek ver, ben istersem dapper yerine orm tool veya sql server yerine nosql de kullanabilirim, bu beni diğer katmanlardan bağımsız hala getirir.
+* Present a loosely coupled structure. For example; ı use dapper micro orm and Sql Server database in this project but 
+ı can use another orm tool instead of dapper or another noSql database instead of sql.This makes my project's layer independent to each other.
 * Consequently; it provides easy maintanance.
 This pattern provide developer to draw central structure for data processing and queries to avoid repetition.
 In program, the actual work of the sections and data access section seperating from each other by repository pattern.
@@ -18,7 +19,7 @@ In program, the actual work of the sections and data access section seperating f
 ### Dependency Injection Pattern
 
 I used dependency injection on constructor so that classes with different responsibilities have a relationship on 
-loosely coupled.I injected dependency through the constructor that provide me to achive loosely couple relationship and 
+loosely coupled.I injected dependency through the constructor that provide me to achive loosely coupled relationship and 
 agree with the Liskov Substitution Principle. 
       
 ## Which DI tools did you use and why did you choose that tool?
