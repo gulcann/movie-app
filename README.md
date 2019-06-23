@@ -59,6 +59,7 @@ I want to:
 * decorate the front-end part and provide more beautiful interface.
 * do more refactoring code.
 * develop login interface for authorization.
+* use noSql database.
 
 ## Do you have additional comments?
 
