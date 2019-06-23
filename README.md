@@ -38,10 +38,9 @@ When client search any movie, service firstly goes to database if data is found,
 if present time greater than the record time 10 minutes, old record is deleted from the database , is called rest service(omdb api) and  is inserted the new latest movie data to the database.
 
 ## Do you have any additional comments about this?
--
--
--
--her bir talep için omdb apisine gitmesi gereksiz yük oluşturabilir.Çünkü her bir 
+
+İnstead of scheduling properly working job, doing above structure decrease the workload.
+
 ## What would you like to do if you had more time?
 
 I want to: 
