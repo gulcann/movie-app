@@ -11,20 +11,20 @@ Client can search any movie and get latest update info about it.
 
 ## Which patterns did you use and why did you choose those patterns?
 
-* Repository Pattern
+### Repository Pattern
 I used this pattern to my project's ASP.NET web api part to do data transactions (get,insert,delete).
 I chosed this pattern because:
-      * it is very convenient for managing data from a single point
-      * Prevents code duplication,
-      * Makes it easy to catch bugs,
-      * Makes it easy to code writing, reading, testing,
-      * At the end; it provides easy maintanance.
+* it is very convenient for managing data from a single point
+* Prevents code duplication,
+* Makes it easy to catch bugs,
+* Makes it easy to code writing, reading, testing,
+* At the end; it provides easy maintanance.
 This pattern provide developer to draw central structure for data processing and queries to avoid repetition.
 In program, the actual work of the sections and data access section seperating from each other by repository pattern.
       
 ## Which DI tools did you use and why did you choose that tool?
 
-* Constructor Injection
+### Constructor Injection
 I used dependency injection on constructor so that classes with different responsibilities have a relationship on 
 loosely coupled.I injected dependency through the constructor that provide me to achive loosely couple relationship and 
 agree the Liskov Substitution Principle. 
