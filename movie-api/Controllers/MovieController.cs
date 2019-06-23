@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using movie_api.Data;
 using movie_api.Models;
 
@@ -12,11 +13,13 @@ namespace movie_api.Controllers
     [ApiController]
     public class MovieController : Controller
     {
+        private readonly IConfiguration _config;
         private readonly IMovieRepository _MovieRepo;
         private readonly IMovieSource _MoviRest;
 
-        public MovieController(IMovieRepository movieRepo,IMovieSource movieRest)
+        public MovieController(IConfiguration config,IMovieRepository movieRepo,IMovieSource movieRest)
         {
+            _config = config;
             this._MovieRepo = movieRepo;
             this._MoviRest = movieRest;
         }
@@ -35,8 +38,12 @@ namespace movie_api.Controllers
                 {
                     return null;
                 }else{
+                     movie.RecordDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff");
                      this._MovieRepo.AddNewMovie(movie);
                 }
+             }else if(ControlRecordDate(movie.RecordDate))
+             {
+                 DeleteAndInsertNewMovie(movie);
              }
              return movie;
         }
@@ -57,8 +64,18 @@ namespace movie_api.Controllers
                 {
                     this._MovieRepo.AddNewMovie(movie);
                 }              
+             }else if(ControlRecordDate(movie.RecordDate))
+             {
+                 DeleteAndInsertNewMovie(movie);
              }
              return movie;
+        }
+
+        private void DeleteAndInsertNewMovie(MovieModel movie)
+        {
+            this._MovieRepo.DeleteMovie(movie.ImdbID);
+            movie.RecordDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff");
+            this._MovieRepo.AddNewMovie(movie);
         }
 
         private MovieModel CallMovieRest(string imdbID,string title)
@@ -66,6 +83,17 @@ namespace movie_api.Controllers
             MovieModel movie = null;
             movie = this._MoviRest.GetMovie<MovieModel>(imdbID??"",title??"");
             return movie;
+        }
+        private bool ControlRecordDate(string recordDate)
+        {
+            DateTime dbRecordDate = Convert.ToDateTime(recordDate);
+            TimeSpan span = DateTime.Now.Subtract ( dbRecordDate );
+            string minute = _config.GetValue<String>("MySettings:DbUpdateInterval");
+            if(span.TotalMinutes > Int32.Parse(minute))
+            {
+                return true;
+            }
+            return false;
         }
 
     }

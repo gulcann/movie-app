@@ -8,5 +8,6 @@ namespace movie_api.Data
         Task<MovieModel> GetByID(string id);    
         Task<MovieModel> GetBySearch(string searchValue);    
         Task<int> AddNewMovie(MovieModel entity);
+        Task<int> DeleteMovie(string imdbid);
     }
 }

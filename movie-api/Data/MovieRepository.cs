@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -33,7 +34,7 @@ namespace movie_api.Data
                 string sQuery = @"SELECT [Title],[Year],[Rated],[Released],[Runtime],[Genre],[Director]
                                         ,[Writer],[Actors],[Plot],[Language],[Country],[Awards],[Poster],[Metascore]
                                         ,[ImdbRating],[ImdbVotes],[Imdbid],[Type],[Dvd],[BoxOffice],[Production],[Website]
-                                        ,[Response] FROM movie WHERE Imdbid = @ID";
+                                        ,[Response],[RecordDate] FROM movie WHERE Imdbid = @ID";
 
                 conn.Open();
                 var result = await conn.QueryAsync<MovieModel>(sQuery, new { ID = id });
@@ -50,7 +51,7 @@ namespace movie_api.Data
                 string sQuery = @"SELECT [Title],[Year],[Rated],[Released],[Runtime],[Genre],[Director]
                                         ,[Writer],[Actors],[Plot],[Language],[Country],[Awards],[Poster],[Metascore]
                                         ,[ImdbRating],[ImdbVotes],[Imdbid],[Type],[Dvd],[BoxOffice],[Production],[Website]
-                                        ,[Response] FROM movie WHERE title LIKE '%' + @TITLE + '%'";
+                                        ,[Response],[RecordDate] FROM movie WHERE title LIKE '%' + @TITLE + '%'";
 
                 conn.Open();
                 var result = await conn.QueryAsync<MovieModel>(sQuery, new { TITLE = title });
@@ -74,6 +75,8 @@ namespace movie_api.Data
         {
             using (IDbConnection conn = Connection)
             {
+                try{
+
                 conn.Open();
                 string q = @"INSERT INTO movie
                                     ([Title]
@@ -99,7 +102,8 @@ namespace movie_api.Data
                                     ,[BoxOffice]
                                     ,[Production]
                                     ,[Website]
-                                    ,[Response])
+                                    ,[Response]
+                                    ,[RecordDate])
                                 VALUES
                                     (@Title,
                                         @Year,
@@ -124,7 +128,8 @@ namespace movie_api.Data
                                         @BoxOffice,
                                         @Production,
                                         @Website,
-                                        @Response)";
+                                        @Response,
+                                        @RecordDate)";
 
                 var id = await conn.ExecuteAsync(q, entity);
                 var ratings = entity.Ratings.Select(r => new
@@ -136,7 +141,30 @@ namespace movie_api.Data
                 string q2 = @"INSERT INTO rating ([Imdbid],[Source],[Value]) VALUES (@Imdbid,@Source,@Value)";
                 var id2 = await conn.ExecuteAsync(q2,ratings);
                 return id;
+                }catch(Exception ex)
+                {
+                    throw ex;
+                }  
             }
+        }
+        public async Task<int> DeleteMovie(string ImdbID)
+        {
+            using(IDbConnection conn = Connection)
+            {
+                try {
+                    conn.Open();
+                    var q = @"DELETE movie WHERE REPLACE(Imdbid, ' ', '') = @ImdbID";
+                    var result = await conn.ExecuteAsync(q,new { ImdbID = ImdbID.Trim() });
+                    var q2 = @"DELETE rating WHERE REPLACE(Imdbid, ' ', '') = @ImdbID";
+                    var result2 = await conn.ExecuteAsync(q2,new { ImdbID = ImdbID.Trim()});
+                
+                return result;
+                }
+                catch(Exception ex) 
+                {
+                    throw ex;
+                }
+            } 
         }
     }
 }

@@ -63,5 +63,7 @@ namespace movie_api.Models
         public string Website { get; set; }
         [StringLength(5)] 
         public string Response { get; set; }
+        [StringLength(50)] 
+        public string RecordDate {get;set;}
     }
 }
