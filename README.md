@@ -43,5 +43,26 @@ I used Microsoft default dependency injection library.It is easy to use.
 -
 -
 ## How did you fix a “10 minute data update issue” without Windows Service?
+
 When client search any movie, service firstly goes to database if data is found, control the record date then
 if present time greater than the record time 10 minutes, old record is deleted from the database , is called rest service(omdb api) and  is inserted the new latest movie data to the database.
+
+## Do you have any additional comments about this?
+-
+-
+-
+-
+## What would you like to do if you had more time?
+
+I want to: 
+* use redis for cache instead of default .Net caching.
+* decorate the front-end part and provide more beautiful interface.
+* do more refactoring code.
+* develop login interface for authorization.
+
+## Do you have additional comments?
+
+This is a very comprehensive project that ı gave much time and energy. This makes me to learn more new information and
+apply that.İt is make me very happy and thankful.
+I want to do my best but, my real performance is not this. I believe that can develop more qualified project without little time constrait:)
+Thank you.
