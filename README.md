@@ -54,6 +54,6 @@ I want to:
 ## Do you have additional comments?
 
 This is a very comprehensive project that ı gave much time and energy. This makes me to learn more new information and
-apply that.İt is make me very happy and thankful.
+apply that.İt is make me very happy and thankful.I have learned dapper , restSharp, caching mechanizm, Microsoft default dependency injection with this project and it was very enjoyable for me.Learning and applying new technologies make me exited.
 I want to do my best but, my real performance is not this. I believe that can develop more qualified project without little time constrait:)
 Thank you.
