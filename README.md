@@ -43,4 +43,5 @@ I used Microsoft default dependency injection library.It is easy to use.
 -
 -
 ## How did you fix a “10 minute data update issue” without Windows Service?
-Data firstly searched from the database
+When client search any movie, service firstly goes to database if data is found, control the record date then
+if present time greater than the record time 10 minutes, old record is deleted from the database , is called rest service(omdb api) and  is inserted the new latest movie data to the database.
