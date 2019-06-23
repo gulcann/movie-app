@@ -25,18 +25,13 @@ instead of injection through the constructor, I had made tightly coupled relatio
       
 ## Which DI tools did you use and why did you choose that tool?
 
- I used Microsoft default dependency injection library.It is easy to use and yeterli.
- 
- 
- 
- 
+ I used Microsoft default dependency injection library.It is easy to use and enought for this project.
  
 ## Which auth mechanism did you use and why?
--
--
--
--
--
+
+Rest services are authorized with tokens.According to my research; ı can do with using jwt but ı can't cultivate this part to develop
+because of any experiment about it.
+
 ## How did you fix a “10 minute data update issue” without Windows Service?
 
 When client search any movie, service firstly goes to database if data is found, control the record date then
