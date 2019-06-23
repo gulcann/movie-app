@@ -32,10 +32,12 @@ agree with the Liskov Substitution Principle.
       
 ## Which DI tools did you use and why did you choose that tool?
 
-I used Microsoft default dependency injection library.It is easy to use.
--
--
--
+ I used Microsoft default dependency injection library.It is easy to use.
+ 
+ 
+ 
+ 
+ 
 ## Which auth mechanism did you use and why?
 -
 -
