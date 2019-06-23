@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
-using Dapper.Contrib.Extensions;
 using Microsoft.Extensions.Configuration;
 using movie_api.Models;
 
