@@ -18,9 +18,10 @@ In program, the actual work of the sections and data access section seperating f
 
 ### Dependency Injection Pattern
 
-I used dependency injection on constructor so that classes with different responsibilities have a relationship on 
+I used dependency injection in my project so that classes with different responsibilities have a relationship on 
 loosely coupled.I injected dependency through the constructor that provide me to achive loosely coupled relationship and 
-agree with the Liskov Substitution Principle. 
+agree with the Liskov Substitution Principle.For example; if I would create my MovieRepository and MovieSource classes inside the class 
+instead of injection through the constructor, I had made tightly coupled relationship between class, this made this dependency hard to change.This effects the maintanance in a bad way.
       
 ## Which DI tools did you use and why did you choose that tool?
 
