@@ -73,7 +73,6 @@ namespace movie_api.Data
         {
             using (IDbConnection conn = Connection)
             {
-                try{
 
                 conn.Open();
                 string q = @"INSERT INTO movie
@@ -139,11 +138,7 @@ namespace movie_api.Data
                 string q2 = @"INSERT INTO rating ([Imdbid],[Source],[Value]) VALUES (@Imdbid,@Source,@Value)";
                 var id2 = await conn.ExecuteAsync(q2,ratings);
                 return id;
-                }catch(Exception ex)
-                {
-                    throw ex;
-                }  
-            }
+                }
         }
         public async Task<int> DeleteMovie(string ImdbID)
         {
