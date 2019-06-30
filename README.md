@@ -51,9 +51,3 @@ I want to:
 * use noSql database.
 * container technology such as docker.
 
-## Do you have additional comments?
-
-This is a very comprehensive project that i spent much time and energy. It makes me to learn more new information and
-apply that. It makes me very happy and thankful. I have learned dapper, restSharp, caching mechanism, Microsoft default dependency injection with this project and it was very enjoyable for me.Learning and applying new technologies make me excited.
-I want to do my best but, my real performance is not this. I believe that can develop more qualified project without short time limits:)
-Thank you.
