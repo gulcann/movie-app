@@ -12,3 +12,5 @@ C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.A
 C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.RazorTargetAssemblyInfo.cache
 C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.dll
 C:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.pdb
+c:\Users\gulcan\Apps\Git\movie-app\movie-api\bin\Debug\netcoreapp2.2\movie-api.xml
+c:\Users\gulcan\Apps\Git\movie-app\movie-api\obj\Debug\netcoreapp2.2\movie-api.xml

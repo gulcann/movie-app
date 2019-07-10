@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -11,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using movie_api.Data;
-using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace movie_api
 {
@@ -37,6 +38,18 @@ namespace movie_api
             services.AddTransient<IMovieRepository, MovieRepository>();
             services.AddTransient<IMovieSource, MovieSource>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(g=>{
+                g.SwaggerDoc("v2",new Info
+                {
+                    Title="Movie API",
+                    Version="1.0",
+                    Description="Movie app that user can search any movie and get latest update info about it.",
+                    Contact=new Contact { Name = "Gülcan", Email = "gulcan.arik@gmail.com", Url = "http://www.github.com/gulcann"}                    
+                });
+ 
+                g.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +69,10 @@ namespace movie_api
             app.UseCors("MyPolicy");
             // app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(s=>{
+                s.SwaggerEndpoint("/swagger/v2/swagger.json","Movie App");
+            });
         }
     }
 }
