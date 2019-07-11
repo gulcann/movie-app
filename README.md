@@ -26,28 +26,4 @@ instead of injection through the constructor, i had made tightly coupled relatio
 ## Which DI tools did you use and why did you choose that tool?
 
  I used Microsoft default dependency injection library.It is easy to use and enought for this project.
- 
-## Which auth mechanism did you use and why?
-
-Rest services are authorized with tokens. According to my research; i can do with using jwt but i can't cultivate this part to develop
-because of any experiment about it.
-
-## How did you fix a “10 minute data update issue” without Windows Service?
-
-When client search any movie, service firstly goes to database if data is found, control the record date then
-if present time greater than the record time 10 minutes, old record is deleted from the database, is called rest service(omdb api) and  is inserted the new latest movie data to the database.
-
-## Do you have any additional comments about this?
-
-Using a timestamp on record to make them up to date is better than building a schedular system. Because it will increase the maintanence cost of project at total. 
-
-## What would you like to do if you had more time?
-
-I want to: 
-* use redis for cache instead of default .Net caching.
-* decorate the front-end part and provide more beautiful interface.
-* do more refactoring code.
-* develop login interface for authorization.
-* use noSql database.
-* container technology such as docker.
 
